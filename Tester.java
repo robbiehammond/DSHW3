@@ -8,9 +8,8 @@ public class Tester {
         hash.add("word2", 16);
         WordScanner scan = new WordScanner("testing");
         scan.getWords();
-        scan.addToTable();
         System.out.println(scan.wordList);
+        scan.addToTable();
         scan.table.printTable();
-
     }
 }
