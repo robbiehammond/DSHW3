@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-// @TODO - Grab Yuchen's method for displaying wierd characters, put it at the bottom of hashTable, use it when printing to file
+//@TODO Give some access modifers where necessary, change public to private where necessary
 
 //class to scan file, get words and frequencies, then put these into a hash table.
 public class WordScanner {

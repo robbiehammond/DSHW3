@@ -8,7 +8,7 @@ public class Tester {
 
 
     public static void main(String[] args) throws IOException {
-        wordCount("toyfile.txt", "output.txt");
+        wordCount("input.txt", "output.txt");
     }
 
     public static void wordCount(String input_file, String output_file) throws IOException {

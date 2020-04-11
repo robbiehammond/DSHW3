@@ -30,6 +30,7 @@ public class HashTable {
     //add entry to table
     public void add(String word, int freq) {
 
+        //increase the size if we've hit a load factor of 1
         if (gettingFull())
             incSize();
 
@@ -146,12 +147,16 @@ public class HashTable {
         }
     }
 
-    //prints the average collision length
+    //returns the average collision length
     public String tableStats() {
-        //total number of elements in the table
+        return "The average collision list length, including null spaces, is: " + loadFactor();
+    }
+
+    //gets the load factor
+    private double loadFactor() {
         int counter = 0;
 
-        //iterate over table
+        //iterate over table array, not going into the buckets
         for (int i = 0; i < table.length; i++) {
 
             //if there is something at this index, count it
@@ -166,26 +171,17 @@ public class HashTable {
                 }
             }
         }
-        return "The average collision list length, including null spaces, is: " + (double)counter / (double)tableSize;
+        //number of entries / number of buckets is the load factor
+        return (double)counter / (double)tableSize;
     }
 
-    //method to check if the hash table should be expanded
+    //If the load factor is greater than or equal to 1, the table is getting full
     public boolean gettingFull() {
-        int counter = 0;
-
-        //iterate over table array, not going into the buckets
-        for (int i = 0; i < table.length; i++) {
-
-            //count how many buckets have at least one item
-            if (table[i] != null)
-                counter++;
-        }
-        //if more than 95% of the indexes have at least one element, return true. Otherwise, return false
-        return counter > .95 * tableSize ;
+        return loadFactor() >= 1;
     }
 
 
-    //can be used to see the entire table, with null spaces included - primarily just used for testing sake
+    //can be used to see the entire table, with null spaces included - just used for testing sake, not used in final program
     public void printTableWithNulls() {
 
         //iterate over table
