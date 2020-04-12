@@ -18,8 +18,8 @@ public class HashTable {
         }
     }
 
-    Entry[] table;
-    Integer tableSize;
+    private Entry[] table;
+    private Integer tableSize;
 
     //starting the table off with a power of 2 size
     public HashTable() {
@@ -148,7 +148,7 @@ public class HashTable {
     }
 
     //returns the average collision length
-    public String tableStats() {
+    private String tableStats() {
         return "The average collision list length, including null spaces, is: " + loadFactor();
     }
 
@@ -176,7 +176,7 @@ public class HashTable {
     }
 
     //If the load factor is greater than or equal to 1, the table is getting full
-    public boolean gettingFull() {
+    private boolean gettingFull() {
         return loadFactor() >= 1;
     }
 

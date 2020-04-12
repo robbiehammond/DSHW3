@@ -3,18 +3,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-//@TODO Give some access modifers where necessary, change public to private where necessary
+
 
 //class to scan file, get words and frequencies, then put these into a hash table.
 public class WordScanner {
     //contents of file
-    String contents;
+    private String contents;
 
     //table to store words and frequencies
     HashTable hash = new HashTable();
 
     //list all of the words inside of file (including repeating words)
-    ArrayList<String> wordList = new ArrayList<>();
+    private ArrayList<String> wordList = new ArrayList<>();
 
     public WordScanner(String inputFile) throws IOException {
         //get contents of file, load into variable
@@ -55,7 +55,7 @@ public class WordScanner {
 
     //adds words and their frequencies to the hashtable
     public void addToTable() {
-        //iterate over all of the words in document
+        //iterate over all of the words present in document
         for (String s : wordList) {
 
 
@@ -96,8 +96,8 @@ public class WordScanner {
 
 
     //Read file contents
-    //Yes this is almost identical to my Programming Project 2 fileContents function, since this project has us do basically the same thing
-    public String fileContents(String InputFile) throws IOException {
+    //Yes this is nearly identical to my Programming Project 2 fileContents function, since this project has us do basically the same thing
+    private String fileContents(String InputFile) throws IOException {
         FileReader fr = new FileReader(InputFile);
 
         int index;
@@ -113,12 +113,12 @@ public class WordScanner {
     }
 
     //checks to see if a word is just letters
-    public boolean isSingleWord(String s) {
+    private boolean isSingleWord(String s) {
         s = s.toLowerCase();
 
         char[] arr = s.toCharArray();
 
-        //loop through all characters, see if any aren't letters
+        //loop through all characters, see if there are any characters that aren't letters
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] < 'a' || arr[i] > 'z')
                 return false;
